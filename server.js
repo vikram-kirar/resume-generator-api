@@ -89,7 +89,6 @@ console.log("HTML rendered")
 
 const browser = await puppeteer.launch({
   headless: true,
-  executablePath: await puppeteer.executablePath(),
   args: [
     "--no-sandbox",
     "--disable-setuid-sandbox",

@@ -80,7 +80,13 @@ const template = handlebars.compile(templateHtml)
 const finalHtml = template(resumeData)
 
 const browser = await puppeteer.launch({
-args: ['--no-sandbox','--disable-setuid-sandbox']
+headless: "new",
+args: [
+'--no-sandbox',
+'--disable-setuid-sandbox',
+'--disable-dev-shm-usage',
+'--disable-gpu'
+]
 })
 
 const page = await browser.newPage()
@@ -93,6 +99,8 @@ const pdf = await page.pdf({
 format:"A4",
 printBackground:true
 })
+
+console.log("PDF generated, size:", pdf.length)
 
 await browser.close()
 

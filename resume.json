@@ -1,0 +1,53 @@
+{
+"name":"Vikram Pratap Singh Kirar",
+"phone":"+91 9111152901",
+"email":"pskirarvikram@gmail.com",
+"linkedin":"linkedin.com/in/vikram-pratap-singh-kirar",
+
+"education":[
+{
+"institution":"Indian Institute of Technology (ISM) Dhanbad",
+"dates":"Jul 2018 – May 2022",
+"degree":"B.Tech in Electronics and Instrumentation Engineering"
+}
+],
+
+"summary":"Product Manager specializing in fintech systems, digital lending platforms, and API-driven integrations delivering measurable improvements in operational efficiency and customer experience.",
+
+"experience":[
+{
+"company":"ICICI Bank",
+"role":"Product Manager",
+"dates":"Sep 2022 – Present",
+"location":"Hyderabad, Telangana",
+"points":[
+"Led API-based real-time collections synchronization improving payment visibility and reducing customer complaints by 95%",
+"Designed self-service file automation reducing retrieval time from two hours to under one minute",
+"Directed migration of 500K+ loan accounts ensuring data integrity through testing and reconciliation playbooks"
+]
+}
+],
+
+"projects":[
+{
+"title":"Founder – Kadak Adda",
+"dates":"Jul 2020 – Aug 2021",
+"location":"Morena, MP",
+"points":[
+"Launched hyperlocal B2C delivery platform achieving ₹50K pilot revenue through targeted social media acquisition",
+"Onboarded 25 vendors and 100 early customers validating demand for specialty poultry products"
+]
+}
+],
+
+"skills":[
+{
+"category":"Product Management",
+"items":"Roadmap Planning, Product Discovery, Stakeholder Management, Agile"
+},
+{
+"category":"Technical",
+"items":"API Integrations, SQL, Flutter, Microservices"
+}
+]
+}

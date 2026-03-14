@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+body{
+font-family:"Times New Roman",serif;
+margin:40px;
+color:#111;
+line-height:1.45;
+}
+
+.container{
+max-width:850px;
+margin:auto;
+}
+
+/* HEADER */
+
+.name{
+text-align:center;
+font-size:32px;
+font-weight:bold;
+letter-spacing:1px;
+margin-bottom:8px;
+}
+
+.contact{
+text-align:center;
+font-size:14px;
+margin-bottom:20px;
+}
+
+/* SECTION */
+
+.section{
+margin-top:22px;
+}
+
+.section-title{
+font-size:20px;
+margin-bottom:6px;
+}
+
+.section-line{
+border-bottom:2px solid #000;
+margin-bottom:10px;
+}
+
+/* ENTRY */
+
+.entry{
+margin-bottom:14px;
+page-break-inside: avoid;
+}
+
+.entry-header{
+display:flex;
+justify-content:space-between;
+font-weight:bold;
+}
+
+.entry-sub{
+font-style:italic;
+font-size:14px;
+margin-bottom:6px;
+}
+
+/* BULLETS */
+
+ul{
+margin-top:5px;
+padding-left:22px;
+}
+
+li{
+margin-bottom:4px;
+}
+
+/* PDF SETTINGS */
+
+@page{
+size:A4;
+margin:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="name">{{name}}</div>
+
+<div class="contact">
+{{phone}} | {{email}} | {{linkedin}}
+</div>
+
+
+<!-- EDUCATION -->
+
+{{#if education}}
+
+<div class="section">
+
+<div class="section-title">Education</div>
+<div class="section-line"></div>
+
+{{#each education}}
+
+<div class="entry">
+
+<div class="entry-header">
+<div>{{institution}}</div>
+<div>{{dates}}</div>
+</div>
+
+<div class="entry-sub">
+{{degree}}
+</div>
+
+</div>
+
+{{/each}}
+
+</div>
+
+{{/if}}
+
+
+<!-- SUMMARY -->
+
+{{#if summary}}
+
+<div class="section">
+
+<div class="section-title">Summary</div>
+<div class="section-line"></div>
+
+<p>{{summary}}</p>
+
+</div>
+
+{{/if}}
+
+
+<!-- EXPERIENCE -->
+
+{{#if experience}}
+
+<div class="section">
+
+<div class="section-title">Product Management Experience</div>
+<div class="section-line"></div>
+
+{{#each experience}}
+
+<div class="entry">
+
+<div class="entry-header">
+<div>{{company}} – {{role}}</div>
+<div>{{dates}}</div>
+</div>
+
+<div class="entry-sub">
+{{location}}
+</div>
+
+<ul>
+{{#each points}}
+<li>{{this}}</li>
+{{/each}}
+</ul>
+
+</div>
+
+{{/each}}
+
+</div>
+
+{{/if}}
+
+
+<!-- PROJECTS -->
+
+{{#if projects}}
+
+<div class="section">
+
+<div class="section-title">Entrepreneurial Experience & Personal Project</div>
+<div class="section-line"></div>
+
+{{#each projects}}
+
+<div class="entry">
+
+<div class="entry-header">
+<div>{{title}}</div>
+<div>{{dates}}</div>
+</div>
+
+<div class="entry-sub">
+{{location}}
+</div>
+
+<ul>
+{{#each points}}
+<li>{{this}}</li>
+{{/each}}
+</ul>
+
+</div>
+
+{{/each}}
+
+</div>
+
+{{/if}}
+
+
+<!-- SKILLS -->
+
+{{#if skills}}
+
+<div class="section">
+
+<div class="section-title">Skills Summary</div>
+<div class="section-line"></div>
+
+<ul>
+
+{{#each skills}}
+
+<li>
+<strong>{{category}}:</strong> {{items}}
+</li>
+
+{{/each}}
+
+</ul>
+
+</div>
+
+{{/if}}
+
+
+</div>
+
+</body>
+</html>

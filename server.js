@@ -174,9 +174,12 @@ const filePath = path.join(GENERATED_DIR,fileName)
 fs.writeFileSync(filePath,pdf)
 
 // Return download URL
+
+const baseUrl = process.env.BASE_URL || "https://resume-generator-api-42ll.onrender.com"
+
 res.json({
 success:true,
-download_url:`/download/${fileName}`
+download_url:`${baseUrl}/download/${fileName}`
 })
 
 }catch(err){

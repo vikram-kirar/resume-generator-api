@@ -89,6 +89,10 @@ console.log("HTML rendered")
 
 const browser = await puppeteer.launch({
   headless: true,
+  executablePath: path.join(
+    process.cwd(),
+    ".cache/puppeteer/chrome/linux-146.0.7680.76/chrome-linux64/chrome"
+  ),
   args: [
     "--no-sandbox",
     "--disable-setuid-sandbox",

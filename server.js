@@ -8,7 +8,10 @@ const cors = require("cors")
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use((req,res,next)=>{
+console.log(`Incoming request: ${req.method} ${req.url}`)
+next()
+})
 
 const TEMPLATE_PATH = path.join(__dirname,"templates","resume.hbs")
 
@@ -69,15 +72,20 @@ res.status(500).send("Error rendering resume preview")
 // GENERATE PDF
 app.post("/generate-resume", async (req,res)=>{
 
+    console.log("Generate resume endpoint hit")
+
 try{
 
 const resumeData = req.body
+console.log("Resume JSON received")
 
 const templateHtml = fs.readFileSync(TEMPLATE_PATH,"utf8")
+console.log("Template loaded")
 
 const template = handlebars.compile(templateHtml)
 
 const finalHtml = template(resumeData)
+console.log("HTML rendered")
 
 const browser = await puppeteer.launch({
 headless: "new",
@@ -89,11 +97,15 @@ args: [
 ]
 })
 
+console.log("Browser launched")
+
 const page = await browser.newPage()
 
 await page.setContent(finalHtml,{
 waitUntil:"networkidle0"
 })
+
+console.log("HTML loaded into browser")
 
 const pdf = await page.pdf({
 format:"A4",
@@ -113,7 +125,7 @@ res.send(pdf)
 
 }catch(err){
 
-console.error(err)
+console.error("PDF generation error:",err)
 res.status(500).send("Error generating resume")
 
 }
